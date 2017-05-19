@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Icon} from 'react-materialize';
+import { Button, Card, Row, Col, Icon} from 'react-materialize';
 import './App.css';
 
 class App extends Component {
