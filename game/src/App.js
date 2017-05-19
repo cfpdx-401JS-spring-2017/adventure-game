@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Button, Card, Row, Col, Icon, Collection, CollectionItem} from 'react-materialize';
-import './App.css';
+import './App.css'
+import Image from './image.jpg';
 
 class App extends Component {
   render() {
     return (
-      <div className="MainContainer" >
+      <div className="MainContainer" style={{ 
+        backgroundImage: 'url(' + Image + ')',
+        backgroundSize: 'cover',
+      }}>
         <div className="CharacterStats">
           <h2>Character Info</h2>
           <ul>  

@@ -25,7 +25,7 @@ ul {
   font-size: 1.25em;
   border-radius: 5px;
   height: 30vh;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 3px 3px 5px white;
   padding-top: 6vh;
 }
 #button-container {
@@ -46,13 +46,13 @@ h1 {
   background-color: #2ec4b6;
   color: white;
   height: 20vh;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 3px 3px 5px white;
 }
 
 h2 {
   background-color: #2ec4b6;
   color: white;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 3px 3px 5px white;
   width: 30vw;
   text-align: center;
 }
