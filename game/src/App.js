@@ -7,17 +7,19 @@ class App extends Component {
     super();
     this.state = {
       playerName: null,
-      sceneSelected: 'MainContainer'
+      sceneSelected: 'MainContainer',
+      currentScene: null
     };
   }
   
   componentDidMount() {
-    this.setState({ playerName: prompt('your name')});
+    this.setState({ playerName: prompt('Enter your name to begin')});
   }
 
   changeBackground(scene) {
     this.setState({
-      sceneSelected: `MainContainer ${scene}`
+      sceneSelected: `MainContainer ${scene}`,
+      currentScene: scene
     });
   }
 
@@ -36,12 +38,13 @@ class App extends Component {
         </div>
         <div className="App">
           <div id="scenes">
-            <Button className="scenes" waves='light' onClick={() => this.changeBackground('air')}>Air</Button>
+            <p>Choose your adventure</p>
+            <Button className="scenes" waves='light' onClick={() => this.changeBackground('sky')}>Sky</Button>
             <Button className="scenes" waves='light' onClick={() => this.changeBackground('sea')}>Sea</Button>
             <Button className="scenes" waves='light' onClick={() => this.changeBackground('forest')}>Forest</Button>  
           </div>
           <div>
-            <h1>Choose your adventure</h1>
+            {this.state.sceneSelected !== 'MainContainer' ? <h1>You look around and see an expansive {this.state.currentScene}</h1> : null}
           </div>
           <div className="ImageContainer">
           </div>
