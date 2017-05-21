@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 import { Button, Card, Row, Col, Icon, Collection, CollectionItem} from 'react-materialize';
 import './App.css'
-import Image from './image.jpg';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      playerName: null
+      playerName: null,
+      sceneSelected: 'MainContainer'
     };
   }
-
   
   componentDidMount() {
     this.setState({ playerName: prompt('your name')});
   }
+
+  changeBackground(scene) {
+    this.setState({
+      sceneSelected: `MainContainer ${scene}`
+    });
+  }
+
   render() {
     return (
-      <div className="MainContainer" style={{ 
-        backgroundImage: 'url(' + Image + ')',
-        backgroundSize: 'cover',
-      }}>
+      <div className={this.state.sceneSelected}>
         <div className="CharacterStats">
           <h2>Character Info</h2>
           <ul>  
@@ -32,6 +35,11 @@ class App extends Component {
           </ul>
         </div>
         <div className="App">
+          <div id="scenes">
+            <Button className="scenes" waves='light' onClick={() => this.changeBackground('air')}>Air</Button>
+            <Button className="scenes" waves='light' onClick={() => this.changeBackground('sea')}>Sea</Button>
+            <Button className="scenes" waves='light' onClick={() => this.changeBackground('forest')}>Forest</Button>  
+          </div>
           <div>
             <h1>Choose your adventure</h1>
           </div>

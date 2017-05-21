@@ -64,3 +64,18 @@ span {
 .ImageContainer {
   height: 30vh;
 }
+
+.forest {
+  background-image: url('./forest.jpg');
+  background-size: cover;
+}
+
+.sea {
+  background-image: url('./sea.jpeg');
+  background-size: cover;
+}
+
+.air {
+  background-image: url('./air.jpg');
+  background-size: cover;
+}
