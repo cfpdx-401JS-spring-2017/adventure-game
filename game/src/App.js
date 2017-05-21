@@ -8,7 +8,12 @@ class App extends Component {
     this.state = {
       playerName: null,
       sceneSelected: 'MainContainer',
-      currentScene: null
+      currentScene: null,
+      vehicle: null,
+      leftButton: 'Continue',
+      rightButton: 'Catch your breath',
+      currentMessage: 'Choose your adventure above',
+      scenarios: [`LOOKOUT! You have stumbled upon a ${this.currentScene} monster!`, `Your ${this.vehicle} is attacked by a ${this.currentScene} monster!`, `Your ${this.vehicle} has been ransacked by a swarm of ${this.currentScene} creatures!`]
     };
   }
   
@@ -16,11 +21,31 @@ class App extends Component {
     this.setState({ playerName: prompt('Enter your name to begin')});
   }
 
-  changeBackground(scene) {
+  changeScene(scene) {
     this.setState({
       sceneSelected: `MainContainer ${scene}`,
-      currentScene: scene
+      currentScene: scene,
+      currentMessage: `You look around and see an expansive ${scene}`
     });
+
+    if (scene === 'sky') {
+      this.setState({ vehicle: 'aircraft'});
+    } else if (scene === 'sea') {
+      this.setState({ vehicle: 'boat'});
+    } else {
+      this.setState({ vehicle: 'elephant'});
+    }
+
+    this.setState({ 
+      leftButton: 'Continue',
+      rightButton: 'Catch your breath'
+     });
+  }
+
+  changeScenario(e, scene) {
+    this.setState({ currentMessage: this.state.scenarios[0] });
+    this.setState({ leftButton: 'Fight' });
+    this.setState({ rightButton: 'Run' });
   }
 
   render() {
@@ -39,18 +64,20 @@ class App extends Component {
         <div className="App">
           <div id="scenes">
             <p>Choose your adventure</p>
-            <Button className="scenes" waves='light' onClick={() => this.changeBackground('sky')}>Sky</Button>
-            <Button className="scenes" waves='light' onClick={() => this.changeBackground('sea')}>Sea</Button>
-            <Button className="scenes" waves='light' onClick={() => this.changeBackground('forest')}>Forest</Button>  
+            <Button className="scenes" waves='light' onClick={() => this.changeScene('sky')}>Sky</Button>
+            <Button className="scenes" waves='light' onClick={() => this.changeScene('sea')}>Sea</Button>
+            <Button className="scenes" waves='light' onClick={() => this.changeScene('forest')}>Forest</Button>  
           </div>
           <div>
-            {this.state.sceneSelected !== 'MainContainer' ? <h1>You look around and see an expansive {this.state.currentScene}</h1> : null}
+            <h1>
+              {this.state.currentMessage}
+            </h1>
           </div>
           <div className="ImageContainer">
           </div>
           <div id="button-container">
-            <Button className="Bobo" waves='light'>button</Button>
-            <Button className="Bobo" waves='light'>button</Button>
+            <Button className="Button" waves='light' onClick={(e) => this.changeScenario(e, this.state.currentScene)}>{this.state.leftButton}</Button>
+            <Button className="Button" waves='light'>{this.state.rightButton}</Button>
           </div>
         </div>
       </div>
