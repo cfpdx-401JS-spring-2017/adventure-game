@@ -13,7 +13,7 @@ class App extends Component {
       leftButton: 'Continue',
       rightButton: 'Catch your breath',
       currentMessage: 'Choose your adventure above',
-      scenarios: [`LOOKOUT! You have stumbled upon a ${this.currentScene} monster!`, `Your ${this.vehicle} is attacked by a ${this.currentScene} monster!`, `Your ${this.vehicle} has been ransacked by a swarm of ${this.currentScene} creatures!`]
+      scenarios: null
     };
   }
   
@@ -25,7 +25,9 @@ class App extends Component {
     this.setState({
       sceneSelected: `MainContainer ${scene}`,
       currentScene: scene,
-      currentMessage: `You look around and see an expansive ${scene}`
+      currentMessage: `You look around and see an expansive ${scene}`,
+      leftButton: 'Continue',
+      rightButton: 'Catch your breath'
     });
 
     if (scene === 'sky') {
@@ -35,17 +37,27 @@ class App extends Component {
     } else {
       this.setState({ vehicle: 'elephant'});
     }
-
-    this.setState({ 
-      leftButton: 'Continue',
-      rightButton: 'Catch your breath'
-     });
   }
 
   changeScenario(e, scene) {
-    this.setState({ currentMessage: this.state.scenarios[0] });
-    this.setState({ leftButton: 'Fight' });
-    this.setState({ rightButton: 'Run' });
+    let possibleScenarios = [`LOOKOUT! You have stumbled upon a ${scene} monster!`, `Your ${this.state.vehicle} is attacked by a ${scene} monster!`, `Your ${this.state.vehicle} has been ransacked by a swarm of ${scene} creatures!`]
+
+    this.setState({ 
+      currentMessage: possibleScenarios[0],
+      leftButton: 'Fight',
+      rightButton: 'Run',
+      scenarios: possibleScenarios
+    });
+  }
+
+  run() {
+    this.setState({
+      sceneSelected: `MainContainer`,
+      currentScene: null,
+      currentMessage: `You can run, but you still have to pick an adventure`,
+      leftButton: 'Continue',
+      rightButton: 'Catch your breath'
+    });
   }
 
   render() {
@@ -63,7 +75,6 @@ class App extends Component {
         </div>
         <div className="App">
           <div id="scenes">
-            <p>Choose your adventure</p>
             <Button className="scenes" waves='light' onClick={() => this.changeScene('sky')}>Sky</Button>
             <Button className="scenes" waves='light' onClick={() => this.changeScene('sea')}>Sea</Button>
             <Button className="scenes" waves='light' onClick={() => this.changeScene('forest')}>Forest</Button>  
@@ -76,8 +87,8 @@ class App extends Component {
           <div className="ImageContainer">
           </div>
           <div id="button-container">
-            <Button className="Button" waves='light' onClick={(e) => this.changeScenario(e, this.state.currentScene)}>{this.state.leftButton}</Button>
-            <Button className="Button" waves='light'>{this.state.rightButton}</Button>
+            <Button className="Button" waves='light' onClick={e => this.changeScenario(e, this.state.currentScene)}>{this.state.leftButton}</Button>
+            <Button className="Button" waves='light' onClick={() => this.run()}>{this.state.rightButton}</Button>
           </div>
         </div>
       </div>
