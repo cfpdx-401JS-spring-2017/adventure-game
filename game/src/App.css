@@ -32,7 +32,7 @@ ul {
   display: inline-block;
 }
 
-.Bobo {
+.Button {
   height: 10vh;
   width: 25vw;
   margin: 30px 10px;
@@ -63,4 +63,19 @@ span {
 }
 .ImageContainer {
   height: 30vh;
+}
+
+.forest {
+  background-image: url('./forest.jpg');
+  background-size: cover;
+}
+
+.sea {
+  background-image: url('./sea.jpeg');
+  background-size: cover;
+}
+
+.sky {
+  background-image: url('./sky.jpg');
+  background-size: cover;
 }
