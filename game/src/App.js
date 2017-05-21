@@ -4,6 +4,17 @@ import './App.css'
 import Image from './image.jpg';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      playerName: null
+    };
+  }
+
+  
+  componentDidMount() {
+    this.setState({ playerName: prompt('your name')});
+  }
   render() {
     return (
       <div className="MainContainer" style={{ 
@@ -13,7 +24,7 @@ class App extends Component {
         <div className="CharacterStats">
           <h2>Character Info</h2>
           <ul>  
-            <li><span>Name:</span> Asap Rocky</li>
+            <li><span>Name:</span> {this.state.playerName}</li>
             <li><span>Current Weapon:</span> Stick</li>
             <li><span>Items:</span> Sword, Napkin, Blanket</li>
             <li><span>Health:</span> 400 hp</li>
@@ -22,7 +33,7 @@ class App extends Component {
         </div>
         <div className="App">
           <div>
-            <h1>You approach a cave with bones and you are attacked by flying Eagle...</h1>
+            <h1>Choose your adventure</h1>
           </div>
           <div className="ImageContainer">
           </div>
