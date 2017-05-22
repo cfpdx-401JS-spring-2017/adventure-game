@@ -15,13 +15,17 @@ class App extends Component {
       currentMessage: 'Choose your adventure above',
       scenarios: null
     };
+
+    this.changeScene = this.changeScene.bind(this);
   }
   
   componentDidMount() {
     this.setState({ playerName: prompt('Enter your name to begin')});
   }
 
-  changeScene(scene) {
+  changeScene(e, scene) {
+    scene = e.target.textContent.toLowerCase();
+
     this.setState({
       sceneSelected: `MainContainer ${scene}`,
       currentScene: scene,
@@ -75,9 +79,9 @@ class App extends Component {
         </div>
         <div className="App">
           <div id="scenes">
-            <Button className="scenes" waves='light' onClick={() => this.changeScene('sky')}>Sky</Button>
-            <Button className="scenes" waves='light' onClick={() => this.changeScene('sea')}>Sea</Button>
-            <Button className="scenes" waves='light' onClick={() => this.changeScene('forest')}>Forest</Button>  
+            <Button className="scenes" waves='light' onClick={this.changeScene}>Sky</Button>
+            <Button className="scenes" waves='light' onClick={this.changeScene}>Sea</Button>
+            <Button className="scenes" waves='light' onClick={this.changeScene}>Forest</Button>  
           </div>
           <div>
             <h1>
