@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, Row, Col, Icon, Collection, CollectionItem} from 'react-materialize';
+import CharacterStats from './CharacterStats';
 import './App.css'
 
 class App extends Component {
@@ -25,8 +26,8 @@ class App extends Component {
     this.setState({ playerName: prompt('Enter your name to begin')});
   }
 
-  changeScene(e, scene) {
-    scene = e.target.textContent.toLowerCase();
+  changeScene(e) {
+    const scene = e.target.textContent.toLowerCase();
 
     this.setState({
       sceneSelected: `MainContainer ${scene}`,
@@ -71,16 +72,7 @@ class App extends Component {
   render() {
     return (
       <div className={this.state.sceneSelected}>
-        <div className="CharacterStats">
-          <h2>Character Info</h2>
-          <ul>  
-            <li><span>Name:</span> {this.state.playerName}</li>
-            <li><span>Current Weapon:</span> Stick</li>
-            <li><span>Items:</span> Sword, Napkin, Blanket</li>
-            <li><span>Health:</span> 400 hp</li>
-            <li><span>Attack Damage:</span> 5 ap</li>
-          </ul>
-        </div>
+        <CharacterStats playerName={this.state.playerName} />
         <div className="App">
           <div id="scenes">
             <Button className="scenes" waves='light' onClick={this.changeScene}>Sky</Button>
