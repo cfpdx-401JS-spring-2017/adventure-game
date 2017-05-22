@@ -24,8 +24,7 @@ techniques available in React. Just use what you know plus JavaScript know-how t
 * Test your components with snapshot testing
 
 ## Rubric
-* Functionally Correct (not buggy) *4pts*
-* Game Creativity *4pts*
-* Idiomatic use of React: *4pts*
-* React Components and Functions: *4pts* 
-* Testing: *4pts*
+* Functionally Correct (not buggy) *5pts*
+* Game Creativity *5pts*
+* Idiomatic use of React: *5pts*
+* React Components and Functions: *5pts* 
