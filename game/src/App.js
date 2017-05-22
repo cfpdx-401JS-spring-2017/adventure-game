@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Card, Row, Col, Icon, Collection, CollectionItem} from 'react-materialize';
+import { Button } from 'react-materialize';
+import CharacterStats from './CharacterStats';
 import './App.css'
 
 class App extends Component {
@@ -15,13 +16,20 @@ class App extends Component {
       currentMessage: 'Choose your adventure above',
       scenarios: null
     };
+
+    this.changeScene = this.changeScene.bind(this);
+    this.changeScenario = this.changeScenario.bind(this);
+    this.run = this.run.bind(this);
   }
   
   componentDidMount() {
     this.setState({ playerName: prompt('Enter your name to begin')});
   }
 
-  changeScene(scene) {
+  changeScene(e) {
+    const scene = e.target.textContent.toLowerCase();
+    console.log(scene);
+
     this.setState({
       sceneSelected: `MainContainer ${scene}`,
       currentScene: scene,
@@ -39,7 +47,9 @@ class App extends Component {
     }
   }
 
-  changeScenario(e, scene) {
+  changeScenario(e) {
+    const scene = this.state.currentScene;
+
     let possibleScenarios = [`LOOKOUT! You have stumbled upon a ${scene} monster!`, `Your ${this.state.vehicle} is attacked by a ${scene} monster!`, `Your ${this.state.vehicle} has been ransacked by a swarm of ${scene} creatures!`]
 
     this.setState({ 
@@ -63,21 +73,12 @@ class App extends Component {
   render() {
     return (
       <div className={this.state.sceneSelected}>
-        <div className="CharacterStats">
-          <h2>Character Info</h2>
-          <ul>  
-            <li><span>Name:</span> {this.state.playerName}</li>
-            <li><span>Current Weapon:</span> Stick</li>
-            <li><span>Items:</span> Sword, Napkin, Blanket</li>
-            <li><span>Health:</span> 400 hp</li>
-            <li><span>Attack Damage:</span> 5 ap</li>
-          </ul>
-        </div>
+        <CharacterStats playerName={this.state.playerName}/>
         <div className="App">
           <div id="scenes">
-            <Button className="scenes" waves='light' onClick={() => this.changeScene('sky')}>Sky</Button>
-            <Button className="scenes" waves='light' onClick={() => this.changeScene('sea')}>Sea</Button>
-            <Button className="scenes" waves='light' onClick={() => this.changeScene('forest')}>Forest</Button>  
+            <Button className="scenes" waves='light' onClick={this.changeScene}>Sky</Button>
+            <Button className="scenes" waves='light' onClick={this.changeScene}>Sea</Button>
+            <Button className="scenes" waves='light' onClick={this.changeScene}>Forest</Button>  
           </div>
           <div>
             <h1>
@@ -87,8 +88,8 @@ class App extends Component {
           <div className="ImageContainer">
           </div>
           <div id="button-container">
-            <Button className="Button" waves='light' onClick={e => this.changeScenario(e, this.state.currentScene)}>{this.state.leftButton}</Button>
-            <Button className="Button" waves='light' onClick={() => this.run()}>{this.state.rightButton}</Button>
+            <Button className="Button" waves='light' onClick={this.changeScenario}>{this.state.leftButton}</Button>
+            <Button className="Button" waves='light' onClick={this.run}>{this.state.rightButton}</Button>
           </div>
         </div>
       </div>
