@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, Row, Col, Icon, Collection, CollectionItem} from 'react-materialize';
+import { Button } from 'react-materialize';
 import CharacterStats from './CharacterStats';
 import './App.css'
 
@@ -28,6 +28,7 @@ class App extends Component {
 
   changeScene(e) {
     const scene = e.target.textContent.toLowerCase();
+    console.log(scene);
 
     this.setState({
       sceneSelected: `MainContainer ${scene}`,
@@ -72,7 +73,7 @@ class App extends Component {
   render() {
     return (
       <div className={this.state.sceneSelected}>
-        <CharacterStats playerName={this.state.playerName} />
+        <CharacterStats playerName={this.state.playerName}/>
         <div className="App">
           <div id="scenes">
             <Button className="scenes" waves='light' onClick={this.changeScene}>Sky</Button>
