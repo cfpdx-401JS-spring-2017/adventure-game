@@ -17,6 +17,7 @@ class App extends Component {
     };
 
     this.changeScene = this.changeScene.bind(this);
+    this.changeScenario = this.changeScenario.bind(this);
   }
   
   componentDidMount() {
@@ -43,7 +44,9 @@ class App extends Component {
     }
   }
 
-  changeScenario(e, scene) {
+  changeScenario(e) {
+    const scene = this.state.currentScene;
+
     let possibleScenarios = [`LOOKOUT! You have stumbled upon a ${scene} monster!`, `Your ${this.state.vehicle} is attacked by a ${scene} monster!`, `Your ${this.state.vehicle} has been ransacked by a swarm of ${scene} creatures!`]
 
     this.setState({ 
@@ -91,7 +94,7 @@ class App extends Component {
           <div className="ImageContainer">
           </div>
           <div id="button-container">
-            <Button className="Button" waves='light' onClick={e => this.changeScenario(e, this.state.currentScene)}>{this.state.leftButton}</Button>
+            <Button className="Button" waves='light' onClick={this.changeScenario}>{this.state.leftButton}</Button>
             <Button className="Button" waves='light' onClick={() => this.run()}>{this.state.rightButton}</Button>
           </div>
         </div>
