@@ -18,6 +18,7 @@ class App extends Component {
 
     this.changeScene = this.changeScene.bind(this);
     this.changeScenario = this.changeScenario.bind(this);
+    this.run = this.run.bind(this);
   }
   
   componentDidMount() {
@@ -95,7 +96,7 @@ class App extends Component {
           </div>
           <div id="button-container">
             <Button className="Button" waves='light' onClick={this.changeScenario}>{this.state.leftButton}</Button>
-            <Button className="Button" waves='light' onClick={() => this.run()}>{this.state.rightButton}</Button>
+            <Button className="Button" waves='light' onClick={this.run}>{this.state.rightButton}</Button>
           </div>
         </div>
       </div>
