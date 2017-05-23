@@ -1,3 +1,8 @@
+.Scene {
+  display: flex;
+  flex-direction: row;
+}
+
 #gameBoard {
   display: flex;
   justify-content: center;
@@ -60,8 +65,6 @@ span {
 }
 
 .forest, .sea, .sky {
-  display: flex;
-  flex-direction: row;
   background-size: cover;
 }
 
