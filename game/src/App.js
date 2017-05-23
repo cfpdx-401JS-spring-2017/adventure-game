@@ -3,7 +3,10 @@ import { Button } from 'react-materialize';
 import CharacterStats from './CharacterStats';
 import './App.css'
 
+
+
 class App extends Component {
+  
   constructor() {
     super();
     this.state = { 
@@ -28,12 +31,17 @@ class App extends Component {
       }
     };
 
+    this.initialState =this.state;
     this.changeScene = this.changeScene.bind(this);
     this.changeScenario = this.changeScenario.bind(this);
     this.buttonHandler = this.buttonHandler.bind(this);
     this.run = this.run.bind(this);
   }
   
+  reset() {
+        this.setState(this.initialState);
+  }
+
   componentDidMount() {
     this.setState({ playerName: prompt('Enter your name to begin')});
   }
@@ -79,9 +87,9 @@ class App extends Component {
     let userHealth = currentHealth - monster.damage;
     
     if(currentHealth <= 0){
-      this.run();
+      this.reset();
       this.setState({
-        currentMessage: `You are dead pick refresh to start over`,
+        currentMessage: `You died and washed up on nearby beach pick a new scene to start over`,
       });
     }else{
       this.setState({
