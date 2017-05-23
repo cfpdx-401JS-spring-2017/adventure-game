@@ -13,7 +13,7 @@ class Scene extends Component {
   render() {
     return (
       <div className="Scene">
-        <CharacterStats player={this.props.playerObj} />
+        <CharacterStats player={this.props.player} />
         <div id="gameBoard">
           <div>
             <Button className="scenes" waves='light' onClick={this.changeScene}>Sky</Button>

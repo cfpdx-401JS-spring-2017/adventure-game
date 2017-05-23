@@ -10,25 +10,26 @@ class App extends Component {
   constructor() {
     super();
     this.state = { 
-      sceneSelected: 'MainContainer',
-      currentScene: null,
-      vehicle: null,
-      leftButton: 'Continue',
-      rightButton: 'Catch your breath',
-      currentMessage: 'Choose your adventure above',
-      scenarios: null,
-      playerName: null,
-      currentWeapon: 'stick',
-      weapons: null,
-      currentHealth: 400,
-      attackDamage: 50,
-      monster: {
-         name: "Monster",
-         health: 100,
-         damage: 100,
-         attacks: ['bashed you with stick', 'ripped off you arm', 'spit on you'],
-         isAlive: true
-      }
+      playerName: null
+      // sceneSelected: 'MainContainer',
+      // currentScene: null,
+      // vehicle: null,
+      // leftButton: 'Continue',
+      // rightButton: 'Catch your breath',
+      // currentMessage: 'Choose your adventure above',
+      // scenarios: null,
+      // playerName: null,
+      // currentWeapon: 'stick',
+      // weapons: null,
+      // currentHealth: 400,
+      // attackDamage: 50,
+      // monster: {
+      //    name: "Monster",
+      //    health: 100,
+      //    damage: 100,
+      //    attacks: ['bashed you with stick', 'ripped off you arm', 'spit on you'],
+      //    isAlive: true
+      // }
     };
 
     this.initialState =this.state;
@@ -139,10 +140,9 @@ class App extends Component {
 
   render() {
     let { playerName, currentWeapon, weapons, currentHealth, attackDamage } = this.state;
-    let playerObj = { playerName,currentWeapon,weapons,currentHealth,attackDamage};
+    let playerObj = { playerName, currentWeapon, weapons, currentHealth, attackDamage};
 
     return (
-
         <div className="App">
           <Scene player={playerObj}/>
         </div>

@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 
 class CharacterStats extends Component {
   render() {
+    let { playerName, currentWeapon, weapons, currentHealth, attackDamage} = this.props.player;
+    
     return (
       <div className="CharacterStats">
         <h2>Character Info</h2>
         <ul>  
-          <li><span>Name:</span> {this.props.playerName}</li>
-          <li><span>Current Weapon:</span> {this.props.currentWeapon}</li>
-          <li><span>Weapons:</span> {this.props.weapons}</li>
-          <li><span>Health:</span> {this.props.currentHealth}</li>
-          <li><span>Attack Damage:</span> {this.props.attackDamage}</li>
+          <li><span>Name:</span> {playerName}</li>
+          <li><span>Current Weapon:</span> {currentWeapon}</li>
+          <li><span>Weapons:</span> {weapons}</li>
+          <li><span>Health:</span> {currentHealth}</li>
+          <li><span>Attack Damage:</span> {attackDamage}</li>
         </ul>
       </div>
     );
