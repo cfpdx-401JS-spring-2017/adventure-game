@@ -9,9 +9,9 @@ class CharacterStats extends Component {
         <h2>Character Info</h2>
         <ul>  
           <li><span>Name:</span> {playerName}</li>
+          <li><span>Health:</span> {currentHealth}</li>
           <li><span>Current Weapon:</span> {currentWeapon}</li>
           <li><span>Weapons:</span> {weapons}</li>
-          <li><span>Health:</span> {currentHealth}</li>
           <li><span>Attack Damage:</span> {attackDamage}</li>
         </ul>
       </div>
