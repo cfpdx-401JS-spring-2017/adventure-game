@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
-import './App.css'
 
 class CharacterStats extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-    };
-  }
-
   render() {
-
-    
-
     return (
       <div className="CharacterStats">
         <h2>Character Info</h2>

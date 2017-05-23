@@ -147,8 +147,6 @@ class App extends Component {
               {this.state.currentMessage}
             </h1>
           </div>
-          <div className="ImageContainer">
-          </div>
           <div id="button-container">
             <Button className="Button" waves='light' onClick={this.buttonHandler}>{this.state.leftButton}</Button>
             <Button className="Button" waves='light' onClick={this.run}>{this.state.rightButton}</Button>
