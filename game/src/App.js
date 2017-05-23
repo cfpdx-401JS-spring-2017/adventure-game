@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-materialize';
-import CharacterStats from './CharacterStats';
+import Scene from './Scene';
 import './App.css'
 
 
@@ -142,25 +142,10 @@ class App extends Component {
     let playerObj = { playerName,currentWeapon,weapons,currentHealth,attackDamage};
 
     return (
-      <div className={this.state.sceneSelected}>
-        <CharacterStats player={playerObj} />
+
         <div className="App">
-          <div id="scenes">
-            <Button className="scenes" waves='light' onClick={this.changeScene}>Sky</Button>
-            <Button className="scenes" waves='light' onClick={this.changeScene}>Sea</Button>
-            <Button className="scenes" waves='light' onClick={this.changeScene}>Forest</Button>  
-          </div>
-          <div>
-            <h1>
-              {this.state.currentMessage}
-            </h1>
-          </div>
-          <div id="button-container">
-            <Button className="Button" waves='light' onClick={this.buttonHandler}>{this.state.leftButton}</Button>
-            <Button className="Button" waves='light' onClick={this.run}>{this.state.rightButton}</Button>
-          </div>
+          <Scene />
         </div>
-      </div>
     );
   }
 }

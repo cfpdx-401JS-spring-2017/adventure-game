@@ -1,8 +1,4 @@
-.MainContainer {
-  display: flex;
-  flex-direction: row;
-}
-.App {
+#gameBoard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +24,8 @@ ul {
   box-shadow: 3px 3px 5px white;
   padding-top: 6vh;
 }
-#button-container {
+
+#actionButtons {
   display: inline-block;
 }
 
@@ -61,21 +58,21 @@ span {
   font-size: 1.25em;
   font-weight: bold;
 }
-.ImageContainer {
-  height: 30vh;
+
+.forest, .sea, .sky {
+  display: flex;
+  flex-direction: row;
+  background-size: cover;
 }
 
 .forest {
   background-image: url('./forest.jpg');
-  background-size: cover;
 }
 
 .sea {
   background-image: url('./sea.jpeg');
-  background-size: cover;
 }
 
 .sky {
   background-image: url('./sky.jpg');
-  background-size: cover;
 }
