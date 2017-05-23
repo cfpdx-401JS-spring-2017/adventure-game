@@ -1,4 +1,4 @@
-.Scene {
+.App {
   display: flex;
   flex-direction: row;
 }
@@ -66,6 +66,8 @@ span {
 
 .forest, .sea, .sky {
   background-size: cover;
+  display: flex;
+  flex-direction: row;
 }
 
 .forest {
