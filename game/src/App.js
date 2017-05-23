@@ -3,7 +3,6 @@ import Scene from './Scene';
 import './App.css'
 
 class App extends Component {
-  
   constructor() {
     super();
     this.state = { 
