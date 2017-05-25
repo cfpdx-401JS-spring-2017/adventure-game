@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans');
+
+body {
+  text-align: left;
+  font-family: 'Open Sans';
+  color: ghostwhite;
+}
+
+h2 {
+  margin: 0;
+  font-family: 'Fjalla One';
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin: 3px 1px ;
+}
+
+.wrapper {
+  border-radius: 15px;
+  text-align: center;
+  padding: 3%; 
+  margin: 4% auto 0 auto;
+  background-color: hsla(239, 0%, 57%, 0.61)
+}
+
+.main {
+  padding: 30px;
+  height: 800px;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 100);
+}
+
+.user-block {
+  border-radius: 15px;
+  padding: 2%;
+  display: inline-block;
+  background-color: hsla(239, 0%, 57%, 0.61)
+}
