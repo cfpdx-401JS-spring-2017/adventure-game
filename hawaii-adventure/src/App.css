@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.welcome {
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+.get-started{
+  font-size: large;
+  text-align: center;
+}
+
+
+.welcomeImageContainer{
+display: flex;
+}
+
+.scene-button{
+padding:30px;
+margin:30px;
+border-radius: 5px;
+}
+
+
