@@ -3,7 +3,7 @@
   flex-direction: row;
 }
 
-#gameBoard {
+.GameBoard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +67,11 @@ span {
 .forest, .sea, .sky {
   background-size: cover;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 70vw;
 }
 
 .forest {
