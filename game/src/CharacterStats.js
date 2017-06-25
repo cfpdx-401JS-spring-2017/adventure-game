@@ -11,7 +11,6 @@ class CharacterStats extends Component {
           <li><span>Name:</span> {playerName}</li>
           <li><span>Health:</span> {currentHealth}</li>
           <li><span>Current Weapon:</span> {currentWeapon}</li>
-          <li><span>Weapons:</span> {weapons}</li>
           <li><span>Attack Damage:</span> {attackDamage}</li>
         </ul>
       </div>
